@@ -14,7 +14,7 @@ var wif = process.env.STEEMVOTERWIF;
 
 var permlinkFix = new Date().toISOString().replace(/[^a-zA-Z0-9]+/g, '').toLowerCase();
 
-const url = 'https://livemediacontrol.com/wp-json/wp/v2/steembots/60';
+var url = 'https://livemediacontrol.com/wp-json/wp/v2/steembots/60';
 
 
 
@@ -29,4 +29,4 @@ app.get('/', (req, res, next) => {
 
 app.listen(app.get('port'), function() {
   console.log("steembot is live on:" + app.get('port'))
-});
+})
