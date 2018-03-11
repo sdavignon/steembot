@@ -1,10 +1,9 @@
 var express = require('express');
 var app = express();
 var http = require('http');
-var axios = require('axios');
 const { url } = require('url');
 var steem = require('steem');
-
+const axios = require('axios');
 app.set('port', (process.env.PORT || 2222)) // Define Port
 app.use(express.static(__dirname + '/public')) // Define static public folder
 
