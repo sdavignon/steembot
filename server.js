@@ -12,7 +12,7 @@ var steembot_id = process.env.STREEMBOT_ID;
 var voter = process.env.STEEMVOTER;
 var wif = process.env.STEEMVOTERWIF;
 
-const url = 'https://livemediacontrol.com/wp-json/wp/v2/steembots/60';
+const urlFix = 'https://livemediacontrol.com/wp-json/wp/v2/steembots/60';
 
 var permlinkFix = new Date().toISOString().replace(/[^a-zA-Z0-9]+/g, '').toLowerCase();
 
