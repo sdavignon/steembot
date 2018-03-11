@@ -25,24 +25,11 @@ app.get('/', (req, res, next) => {
     res.send('public/index.html')
     });
 	
-//The 404 Route (ALWAYS Keep this as the last route)
-app.get('*', function(req, res, next){
-   axios.get(url)
+app.get('/tmd', (req, res) => {
+    axios.get(url)
     .then((response) => {
         const alldata= [];
          res.send(response.data.results.map((data) => {data.id}))
-        /*response.data.results.map((data, index) => {
-            const obj= {
-                id: data.id,
-                title: data.title,
-                poster: data.poster_path,
-                backdrop: data.backdrop_path,
-                overview: data.overview,
-                release: data.release_date
-            }
-            alldata.push(obj)   
-        });
-        res.send(alldata);*/
     });
  });
 
