@@ -1,0 +1,2 @@
+# steembot
+generic steembot
