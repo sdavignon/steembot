@@ -3,7 +3,7 @@ var app = express();
 var http = require('http');
 const { url } = require('url');
 var steem = require('steem');
-const axios = require('axios');
+//const axios = require('axios');
 app.set('port', (process.env.PORT || 2222)) // Define Port
 app.use(express.static(__dirname + '/public')) // Define static public folder
 
@@ -29,4 +29,4 @@ app.get('/', (req, res, next) => {
 
 app.listen(app.get('port'), function() {
   console.log("steembot is live on:" + app.get('port'))
-})
+});
