@@ -26,10 +26,18 @@ app.get('/', (req, res, next) => {
     });
 	
 app.get('/tmd', (req, res) => {
-    axios.get(urlConfig)
+     axios.get(url)
     .then((response) => {
         const alldata= [];
-         res.send(response)
+        // res.send(response.data.results.map((data) => {data.title}))
+        response.data.results.map((data, index) => {
+            const obj= {
+                id: data.id,
+                slug: data.slug
+            }
+            alldata.push(obj)   
+        });
+        res.send(alldata);
     });
  });
 
