@@ -12,6 +12,7 @@ var steembot_id = process.env.STREEMBOT_ID;
 var voter = process.env.STEEMVOTER;
 var wif = process.env.STEEMVOTERWIF;
 
+const url = 'https://livemediacontrol.com/wp-json/wp/v2/steembots/60';
 
 var permlinkFix = new Date().toISOString().replace(/[^a-zA-Z0-9]+/g, '').toLowerCase();
 
@@ -26,7 +27,23 @@ app.get('/', (req, res, next) => {
 	
 //The 404 Route (ALWAYS Keep this as the last route)
 app.get('*', function(req, res, next){
-   res.send('public/index.html')
+   axios.get(url)
+    .then((response) => {
+        const alldata= [];
+         res.send(response.data.results.map((data) => {data.id}))
+        /*response.data.results.map((data, index) => {
+            const obj= {
+                id: data.id,
+                title: data.title,
+                poster: data.poster_path,
+                backdrop: data.backdrop_path,
+                overview: data.overview,
+                release: data.release_date
+            }
+            alldata.push(obj)   
+        });
+        res.send(alldata);*/
+    });
  });
 
 
