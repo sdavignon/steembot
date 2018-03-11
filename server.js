@@ -3,7 +3,7 @@ var app = express();
 var http = require('http');
 const { url } = require('url');
 var steem = require('steem');
-//const axios = require('axios');
+
 app.set('port', (process.env.PORT || 2222)) // Define Port
 app.use(express.static(__dirname + '/public')) // Define static public folder
 
@@ -14,7 +14,6 @@ var wif = process.env.STEEMVOTERWIF;
 
 var permlinkFix = new Date().toISOString().replace(/[^a-zA-Z0-9]+/g, '').toLowerCase();
 
-var url = 'https://livemediacontrol.com/wp-json/wp/v2/steembots/60';
 
 
 
@@ -24,6 +23,10 @@ app.get('/', (req, res, next) => {
     res.send('public/index.html')
     });
 	
+//The 404 Route (ALWAYS Keep this as the last route)
+app.get('*', function(req, res, next){
+   res.send('public/index.html')
+ });
 
 
 
