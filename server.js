@@ -29,7 +29,7 @@ app.get('/tmd', (req, res) => {
     axios.get(urlConfig)
     .then((response) => {
         const alldata= [];
-         res.send(response.data.results.map((data) => {data.id}))
+         res.send(response)
     });
  });
 
