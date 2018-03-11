@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 var http = require('http');
-var axios = require('axios')
+var axios = require('axios');
 const { url } = require('url');
 var steem = require('steem');
 
@@ -40,7 +40,7 @@ app.get('*', function(req, res, next){
                 overview: data.overview,
                 release: data.release_date
             }
-            alldata.push(obj)   
+            alldata.push(obj);  
         });
         res.send(alldata);
     });
