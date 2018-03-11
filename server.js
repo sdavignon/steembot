@@ -25,13 +25,6 @@ app.get('/', (req, res, next) => {
     res.send('public/index.html')
     });
 	
-app.get('/tmd', (req, res) => {
-    axios.get(url)
-    .then((response) => {
-        const alldata= [];
-         res.send(response.data.results.map((data) => {data.id}))
-    });
- });
 
 
 
