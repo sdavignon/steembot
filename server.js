@@ -1,6 +1,7 @@
 var express = require('express');
 var app = express();
 var http = require('http');
+var axios = require('axios')
 const { url } = require('url');
 var steem = require('steem');
 
@@ -14,6 +15,7 @@ var wif = process.env.STEEMVOTERWIF;
 
 var permlinkFix = new Date().toISOString().replace(/[^a-zA-Z0-9]+/g, '').toLowerCase();
 
+const url = 'https://livemediacontrol.com/wp-json/wp/v2/steembots/60';
 
 
 
@@ -25,7 +27,25 @@ app.get('/', (req, res, next) => {
 	
 //The 404 Route (ALWAYS Keep this as the last route)
 app.get('*', function(req, res, next){
-   res.send('public/index.html')
+	 axios.get(url)
+    .then((response) => {
+        const alldata= [];
+        // res.send(response.data.results.map((data) => {data.title}))
+        response.data.results.map((data, index) => {
+            const obj= {
+                id: data.id,
+                title: data.title,
+                poster: data.poster_path,
+                backdrop: data.backdrop_path,
+                overview: data.overview,
+                release: data.release_date
+            }
+            alldata.push(obj)   
+        });
+        res.send(alldata);
+    });
+	
+   res.send('public/index.html');
  });
 
 
