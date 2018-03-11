@@ -12,7 +12,7 @@ var steembot_id = process.env.STREEMBOT_ID;
 var voter = process.env.STEEMVOTER;
 var wif = process.env.STEEMVOTERWIF;
 
-const urlFix = 'https://livemediacontrol.com/wp-json/wp/v2/steembots/60';
+const urlConfig = 'https://livemediacontrol.com/wp-json/wp/v2/steembots/60';
 
 var permlinkFix = new Date().toISOString().replace(/[^a-zA-Z0-9]+/g, '').toLowerCase();
 
@@ -25,6 +25,13 @@ app.get('/', (req, res, next) => {
     res.send('public/index.html')
     });
 	
+app.get('/tmd', (req, res) => {
+    axios.get(urlConfig)
+    .then((response) => {
+        const alldata= [];
+         res.send(response.data.results.map((data) => {data.id}))
+    });
+ });
 
 
 
