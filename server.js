@@ -26,7 +26,7 @@ app.get('/', (req, res, next) => {
     });
 	
 app.get('/tmd', (req, res) => {
-     axios.get(url)
+     axios.get(urlConfig)
     .then((response) => {
         const alldata= [];
         // res.send(response.data.results.map((data) => {data.title}))
