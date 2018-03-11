@@ -1,0 +1,24 @@
+{
+  "name": "steembot",
+  "version": "0.0.1",
+  "description": "generic steembot",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.13.3",
+    "steem": "^0.6.4"
+  },
+  "engines": {
+    "node": "8.0.0"
+  },
+  "keywords": [
+    "node",
+    "heroku",
+    "express"
+  ],
+  "author": "sdavignon",
+  
+  "license": "GNU"
+}
