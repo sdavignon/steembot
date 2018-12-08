@@ -2,6 +2,6 @@
   "name": "steembot",
   "description": "generic bot for steemit.com",
   "repository": "https://github.com/sdavignon/steembot.git",
-  "logo": "https://rawgit.com/heroku/node-js-sample/master/public/node.svg",
+  "logo": "https://cdn.jsdelivr.net/gh/heroku/node-js-sample/public/node.svg",
   "keywords": ["steembot","node", "express", "static", "steemit"]
 }
